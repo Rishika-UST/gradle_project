@@ -30,13 +30,13 @@ jobs:
         run: ./gradlew test --tests "com.gradleproject.data.OrderTestIT"
 
       # Checkout gh-pages branch to preserve history
-      - name: 7. Load Allure History
-        if: always()
-        continue-on-error: true
-        uses: actions/checkout@v5
-        with:
-          ref: gh-pages
-          path: gh-pages
+#      - name: 7. Load Allure History
+#        if: always()
+#        continue-on-error: true
+#        uses: actions/checkout@v5
+#        with:
+#          ref: gh-pages
+#          path: gh-pages
 
       # Generate Allure Report
       - name: 8. Generate Allure Report
