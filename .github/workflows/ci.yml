@@ -15,18 +15,44 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '22'
-          cache: 'maven'
-    
+          cache: 'gradle'
+
       - name: 3. Install Gradle
         uses: gradle/actions/setup-gradle@v4
-        
+
       - name: 4. Generate Gradle Wrapper
         run: gradle wrapper
- 
 
       - name: 5. Grant execute permission
         run: chmod +x gradlew
 
-      
       - name: 6. Run Tests
         run: ./gradlew test --tests "com.gradleproject.data.OrderTestIT"
+
+      # Checkout gh-pages branch to preserve history
+      - name: 7. Load Allure History
+        if: always()
+        continue-on-error: true
+        uses: actions/checkout@v5
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      # Generate Allure Report
+      - name: 8. Generate Allure Report
+        if: always()
+        uses: simple-elf/allure-report-action@master
+        with:
+          allure_results: build/allure-results
+          allure_report: allure-report
+          gh_pages: gh-pages
+          allure_history: allure-history
+
+      # Publish report to gh-pages
+      - name: 9. Publish Allure Report
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history

@@ -28,6 +28,7 @@ dependencies {
     testImplementation(platform("io.qameta.allure:allure-bom:$allureVersion"))
     testImplementation(platform("org.testcontainers:testcontainers-bom:$testcontainers"))
     testImplementation("org.seleniumhq.selenium:selenium-java:$seleniumVersion")
+    testImplementation("io.qameta.allure:allure-junit5")
     testImplementation("com.codeborne:selenide:$selenideVersion")
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("io.cucumber:cucumber-java")
@@ -43,7 +44,6 @@ dependencies {
     testImplementation("org.flywaydb:flyway-core:$flywayVersion")
     testImplementation("org.flywaydb:flyway-mysql:$flywayVersion")
     testImplementation("mysql:mysql-connector-java:$mysqlLibVersion")
-
 
 }
 
