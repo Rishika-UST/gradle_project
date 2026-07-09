@@ -1,0 +1,6 @@
+{
+  "name":"GitHub Actions",
+  "type":"github",
+  "buildName":"CI Build",
+  "buildUrl":"https://github.com/Rishika-UST/gradle_project/actions"
+}
