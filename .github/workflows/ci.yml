@@ -31,3 +31,4 @@ jobs:
       - name: 5. Run Tests
         working-directory: gradlerepo
         run: ./gradlew test --tests "com.gradleproject.data.OrderTestIT"
+        
