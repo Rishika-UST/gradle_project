@@ -1,5 +1,7 @@
 package com.gradleproject.data;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,6 +21,8 @@ import java.sql.Statement;
 
 
 @Testcontainers(disabledWithoutDocker = true)
+@Epic("Orders")
+@Feature("Order API")
  class OrderTestIT {
      @Container
      static MySQLContainer mySQL = new MySQLContainer(DockerImageName.parse("mysql:8.0"))
