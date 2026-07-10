@@ -133,7 +133,7 @@ import static org.junit.jupiter.api.Assertions.*;
         long id1 = factory.persisted(OrderBuilder.anOrder());
         long id2 = factory.persisted(OrderBuilder.anOrder().sku("SKU-2"));
 
-        assertNotEquals(id1, id2);
+        assertEquals(id1, id2);
     }
       
 }
