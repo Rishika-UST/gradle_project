@@ -11,13 +11,12 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.mysql.MySQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @Testcontainers
@@ -127,6 +126,14 @@ import java.sql.Statement;
          
          assertEquals(1,repository.count());
          assertEquals(1,repository.countByStatus("REFUNDED"));
+    }
+
+    @Test
+    void persistedOrdersHaveUniqueIds() {
+        long id1 = factory.persisted(OrderBuilder.anOrder());
+        long id2 = factory.persisted(OrderBuilder.anOrder().sku("SKU-2"));
+
+        assertNotEquals(id1, id2);
     }
       
 }
