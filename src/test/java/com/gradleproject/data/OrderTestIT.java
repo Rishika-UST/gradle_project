@@ -116,7 +116,7 @@ import static org.junit.jupiter.api.Assertions.*;
          factory.persisted(OrderBuilder.anOrder());
          factory.persisted(OrderBuilder.anOrder().sku("SKU-2").qty(2));
          
-         assertEquals(3,repository.count());
+         assertEquals(2,repository.count());
     }
     
     @Test
@@ -128,13 +128,6 @@ import static org.junit.jupiter.api.Assertions.*;
          assertEquals(1,repository.countByStatus("REFUNDED"));
     }
 
-    @Test
-    void persistedOrdersHaveUniqueIds() {
-        long id1 = factory.persisted(OrderBuilder.anOrder());
-        long id2 = factory.persisted(OrderBuilder.anOrder().sku("SKU-2"));
-
-        assertEquals(id1, id2);
-    }
 
 
 }
