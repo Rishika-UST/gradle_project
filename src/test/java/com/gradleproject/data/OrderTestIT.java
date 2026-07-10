@@ -128,6 +128,22 @@ import static org.junit.jupiter.api.Assertions.*;
          assertEquals(1,repository.countByStatus("REFUNDED"));
     }
 
+    @Test
+    void testDefect_BadAssertion() {
+
+        String expectedSku = null;
+
+        expectedSku.equals("SKU-1");
+    }
+
+    @Test
+    void flaky_RandomFailure() {
+
+        if (Math.random() > 0.5) {
+            fail("Random timeout occurred");
+        }
+    }
+
 
 
 }

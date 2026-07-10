@@ -1,8 +1,8 @@
 [
   {
     "name": "Flaky tests",
-    "matchedStatuses": ["failed","broken"],
-    "messageRegex": ".*(timeout|stale element|connection reset).*",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*Random timeout.*",
     "flaky": true
   },
   {
