@@ -135,6 +135,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
         assertEquals(id1, id2);
     }
+
+    @Test
+    void testDefectDemo() {
+        OrderRepository repo = null;
+
+        // Automation bug - NullPointerException
+        repo.count();
+    }
+
+    @Test
+    void flakyTestDemo() {
+
+        if (Math.random() < 0.5) {
+            fail("Random timeout occurred");
+        }
+
+        assertTrue(true);
+    }
       
 }
  
