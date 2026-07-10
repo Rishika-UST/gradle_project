@@ -20,9 +20,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 
-@Testcontainers(disabledWithoutDocker = true)
-@Epic("Orders")
-@Feature("Order API")
+@Testcontainers
+
  class OrderTestIT {
      @Container
      static MySQLContainer mySQL = new MySQLContainer(DockerImageName.parse("mysql:8.0"))
